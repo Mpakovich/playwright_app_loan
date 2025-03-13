@@ -28,7 +28,6 @@ test.describe('Loan app mock tests', async () => {
       await request.fulfill({
         status: 500,
         contentType: 'application/json',
-        body: '',
       });
     });
 
@@ -45,14 +44,13 @@ test.describe('Loan app mock tests', async () => {
       await request.fulfill({
         status: 200,
         contentType: 'application/json',
-        body: '{}',
       });
     });
 
     const loanCalcResponse = page.waitForResponse('**/api/loan-calc*');
     await smallLoanPage.open();
     await loanCalcResponse;
-    await smallLoanPage.checkErrorMessageDisplayed;
+    await smallLoanPage.checkErrorDisplayed()
   });
 
   test('HW-17-3 200 OK but incorrect key in response', async ({ page }) => {
