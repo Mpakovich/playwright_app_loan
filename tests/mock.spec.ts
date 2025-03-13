@@ -50,7 +50,7 @@ test.describe('Loan app mock tests', async () => {
     const loanCalcResponse = page.waitForResponse('**/api/loan-calc*');
     await smallLoanPage.open();
     await loanCalcResponse;
-    await smallLoanPage.checkErrorDisplayed()
+    await smallLoanPage.checkErrorMessageDisplayed;
   });
 
   test('HW-17-3 200 OK but incorrect key in response', async ({ page }) => {
